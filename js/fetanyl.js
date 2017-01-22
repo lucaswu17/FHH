@@ -62,6 +62,8 @@ var x = d3.scaleBand()
 var y = d3.scaleLinear()
     .range([plotHeight, 0]);
 
+var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
 createMap();
 
 function createMap() {
@@ -189,15 +191,20 @@ function createMap() {
           .delay(500)
           .attr("fill", "#000");
 
+      var xAxis = d3.axisBottom(x)
+        .tickFormat(function(d) {
+          console.log(d.substring(6, 10));
+          return months[+(d.substring(4, 6)) - 1] + "-" + d.substring(0, 4);
+        });
 
       // add the x Axis
       plot.append("g")
           .attr("transform", "translate(0," + plotHeight + ")")
-          .call(d3.axisBottom(x))
+          .call(xAxis)
           .selectAll("text")
             .attr("dx", "-30px")
-            .attr("dy", "-5px")
-            .attr("transform", "rotate(-90)");
+            .attr("dy", "0px")
+            .attr("transform", "rotate(-65)");
 
       // add the y Axis
       plot.append("g")
