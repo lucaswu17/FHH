@@ -105,7 +105,13 @@ d3.queue()
         })
         .duration(2000)
         .attr("r", function(d) {
-          return d.values.length * 2;
+          var count = 0;
+          d.values.forEach(function(v) {
+            if (v.Fentanyl === "Y") {
+              count = count + 1;
+            }
+          })
+          return count * 5;
         })
         .style("fill", "red")
         .remove();
