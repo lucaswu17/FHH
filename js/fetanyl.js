@@ -20,27 +20,34 @@ var showF = 1;
 var showH = 0;
 var showC = 0;
 
-d3.select("#fentanylCheck")
-  .on("click", function(d) {
-    flipVar(showF);
-  });
+// d3.select("#fentanylCheck")
+//   .on("click", function(d) {
+//     flipVar(showF);
+//   });
 
-d3.select("#heroinCheck")
-  .on("click", function(d) {
-    flipVar(showH);
-  });
+// d3.select("#heroinCheck")
+//   .on("click", function(d) {
+//     flipVar(showH);
+//   });
 
-d3.select("#cocaineCheck")
-  .on("click", function(d) {
-    flipVar(showC);
-  });
+// d3.select("#cocaineCheck")
+//   .on("click", function(d) {
+//     flipVar(showC);
+//   });
 
-function flipVar(someVar) {
-  someVar = (someVar == 0) ? 1 : 0;
-  d3.selectAll(".ctMap").remove();
-  d3.selectAll(".ctPlot").remove();
-  createMap();
-}
+// function flipVar(someVar) {
+//   someVar = (someVar == 0) ? 1 : 0;
+//   d3.selectAll(".ctMap").remove();
+//   d3.selectAll(".ctPlot").remove();
+//   createMap();
+// }
+
+d3.select("#replay")
+  .on("click", function(d) {
+    d3.selectAll(".ctMap").remove();
+    d3.selectAll(".ctPlot").remove();
+    createMap();
+  });
 
 // Plot variables
 

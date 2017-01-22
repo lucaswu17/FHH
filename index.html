@@ -6,13 +6,17 @@
     </head>
 
     <body>
-        <form>
-            <label><input type="checkbox" value="Fentanyl" id="fentanylCheck" checked="checked">Fentanyl</label>
-            <label><input type="checkbox" value="Heroin" id="heroinCheck">Heroin</label>
-            <label><input type="checkbox" value="Cocaine" id="cocaineCheck">Cocaine</label>
-        </form>
-        <div id="map"></div>
-        <div id="plot"></div>
+        <div id="container">
+            <h1>Connecticut Drug Overdose Map</h1>
+            <!--<form>
+                <label><input type="checkbox" value="Fentanyl" id="fentanylCheck" checked="checked">Fentanyl</label>
+                <label><input type="checkbox" value="Heroin" id="heroinCheck">Heroin</label>
+                <label><input type="checkbox" value="Cocaine" id="cocaineCheck">Cocaine</label>
+            </form>-->
+            <button id="replay">Replay</button>
+            <div id="map"></div>
+            <div id="plot"></div>
+        </div>
 
     	<script src="https://d3js.org/d3.v4.min.js"></script>
     	<script src="https://d3js.org/topojson.v2.min.js"></script>
