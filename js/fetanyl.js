@@ -22,7 +22,7 @@ d3.json("data/ct.json", function(error, ct) {
   console.log(ct);
 
   svg.append("path")
-      .attr("class", "states")
+      .attr("class", "tracts")
       .datum(topojson.feature(ct, ct.objects.cb_2015_09_tract_500k))
       .attr("d", path);
 });
