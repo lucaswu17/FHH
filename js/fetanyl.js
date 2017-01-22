@@ -144,7 +144,7 @@ function createMap() {
               }
             })
             console.log(count);
-            return count * 5;
+            return Math.sqrt(count * 20);
           })
           .style("fill", "red")
           .transition()
