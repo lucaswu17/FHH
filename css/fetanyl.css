@@ -2,3 +2,8 @@
 	fill: #ccc;
  	stroke: #fff;
 }
+
+.dataCircle {
+	fill: red;
+	opacity: 0.25;
+}
