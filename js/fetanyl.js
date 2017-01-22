@@ -17,12 +17,31 @@ var svg = d3.select("body").append("svg")
     .attr("width", width)
     .attr("height", height);
 
-d3.json("data/ct.json", function(error, ct) {
+d3.queue()
+  .defer(d3.json, "data/ct.json")
+  .defer(d3.csv, "data/con_ll.csv")
+  .await(function ready(error, ct, data) {
+    console.log(ct);
+    console.log(data);
 
-  console.log(ct);
+    svg.append("path")
+        .attr("class", "tracts")
+        .datum(topojson.feature(ct, ct.objects.cb_2015_09_tract_500k))
+        .attr("d", path);
 
-  svg.append("path")
-      .attr("class", "tracts")
-      .datum(topojson.feature(ct, ct.objects.cb_2015_09_tract_500k))
-      .attr("d", path);
+    svg.selectAll("circle")
+      .data(data)
+      .enter()
+      .append("circle")
+      .attr("cx", function(d) {
+        console.log(d.Longitude);
+        return projection([d.Longitude, d.Latitude])[0];
+      })
+      .attr("cy", function(d) {
+        return projection([d.Longitude, d.Latitude])[1];
+      })
+      .attr("r", 2)
+      .style("fill", "red");
 });
+
+
